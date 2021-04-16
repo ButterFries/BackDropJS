@@ -1,0 +1,181 @@
+
+<link rel="stylesheet" href="res/docs.css">
+
+<script defer type="text/javascript" src='js/backdrop.js'></script>
+<script defer type="text/javascript" src='js/docs.js'></script>
+
+<div style="width:100%">
+	<head>
+		<div id="header" style="min-width:1400px">
+			<a href="index.html" class="menuButton" type="button" id="headerLanding">
+	            BackDrop
+	        </a>
+			<a href="examples.html" class="menuButton" type="button" id="headerLanding">
+	            Examples
+	        </a>
+		</div>
+	</head>
+
+	<body>
+		<div class="title1">Docs</div>
+		<div class="title2">Getting Started</div>
+		<div class="text">To get started with BackDrop, download the library and include the script in your HTML:</div>
+		<object data="res/codeSnippets/docsJs2.html" width="100%" height="50"></object>
+
+		<div class="text">You may then access the API through creating BackDropBackground, BackDropElement, and BackDropStateTransition objects.</div>
+
+		
+		<div>
+	 	    <button class="btn selected" type="button" id="example1jsBtn">
+			    JavaScript
+			</button>
+			<button class="btn" type="button" id="example1htmlBtn">
+			    HTML
+			</button>
+
+			<div id="example1js" class="code visible">
+				<object data="res/codeSnippets/docsJs1.html" width="100%" height="555"></object>
+			</div>
+			<div id="example1html" class="code hidden">
+			    <object data="res/codeSnippets/docsHtml.html" width="100%" height="100"></object>
+			</div>
+		</div>
+
+		<div class="title2">BackDropBackground</div>
+		<div class="textContainer">
+			<div class="title3">constructor(parent_container_id)</div>
+			<div class="text">Initializes the background and sets the div with id 'parentContainerId' as the parent for background elements.</div>
+
+			<div class="title3">.getElements()</div>
+			<div class="text">Returns a list of all element ids attached to the background.</div>
+
+			<div class="title3">.addElement(new_element)</div>
+			<div class="text">Adds a BackDropElement to the background, displays it, and attaches a stateChange listener to the new_element. Throws an error if the element id already exists in the background.</div>
+
+			<div class="title3">.deleteElement(id)</div>
+			<div class="text">Deletes an element from the background with the corresponding id. Throws an error if an id is not found.</div>
+
+			<div class="title3">.setBackgroundColor(color)</div>
+			<div class="text">Set the background's color.</div>
+
+			<div class="title3">.getHeight()</div>
+			<div class="text">Returns the background's height.</div>
+
+			<div class="title3">.getWidth()</div>
+			<div class="text">Returns the background's width.</div>
+
+			<div class="title3">CustomEvent 'backDropStateChange'</div>
+			<div class="text">The background will dispatch a 'backDropStateChange' custom event to the parent div if any added elements go through a state transition. EventListeners can wait for the event for background -> site interactions.</div>
+			<div class="text">The event has a detail object containing:</div>
+			<ul class="text">
+  				<li style="margin-bottom:7px">old_state: the old state of the firing elem</li>
+  				<li style="margin-bottom:7px">new_state: the new state of the firing elem</li>
+  				<li style="margin-bottom:7px">elem_id: the id of the firing elem</li>
+  				<li style="margin-bottom:7px">transition_id: the id of the transition</li>
+  				<li>clicked_elem_id: the id of the element clicked on</li>
+			</ul>
+		</div>
+
+		<div class="title2">BackDropElement</div>
+		<div class="textContainer">
+			<div class="title3">constructor(args)</div>
+			<div class="text">Creates a new element. args is an object containing:</div>
+			<ul class="text">
+  				<li style="margin-bottom:7px">id: required</li>
+  				<li style="margin-bottom:7px">curr_state: required</li>
+  				<li style="margin-bottom:7px">src: optional: default undefined</li>
+  				<li style="margin-bottom:7px">x_pos: optional: default 0</li>
+  				<li style="margin-bottom:7px">y_pos: optional: default 0</li>
+  				<li style="margin-bottom:7px">width: optional: default 0</li>
+  				<li style="margin-bottom:7px">height: optional: default 0</li>
+  				<li style="margin-bottom:7px">x_scale: optional: default 1</li>
+  				<li style="margin-bottom:7px">y_scale: optional: default 1</li>
+  				<li>opacity: optional: default 1</li>
+			</ul>
+
+			<div class="title3">.addStateTransition(state)</div>
+			<div class="text">Adds a new state transition to the element.</div>
+
+			<div class="title3">.removeStateTransition(id)</div>
+			<div class="text">Removes a state transition with the corresponding id. Throws an error if the id is not found.</div>
+
+			<div class="title3">.id</div>
+			<div class="text">The id of the element.</div>
+
+			<div class="title3">.x_pos</div>
+			<div class="text">The x position of the element's top left corner.</div>
+
+			<div class="title3">.y_pos</div>
+			<div class="text">The y position of the element's top left corner.</div>
+
+			<div class="title3">.width</div>
+			<div class="text">The width of the element</div>
+
+			<div class="title3">.height</div>
+			<div class="text">The height of the element</div>
+
+			<div class="title3">.x_scale</div>
+			<div class="text">The x scale of the element</div>
+
+			<div class="title3">.y_scale</div>
+			<div class="text">The y scale of the element</div>
+
+			<div class="title3">.opacity</div>
+			<div class="text">The opacity of the element</div>
+
+		</div>
+
+		<div class="title2">BackDropStateTransition</div>
+		<div class="textContainer">
+			<div class="title3">constructor(args)</div>
+			<div class="text">Creates a new state transition. args is an object containing:</div>
+			<ul class="text">
+  				<li style="margin-bottom:7px">transition_id: required</li>
+  				<li style="margin-bottom:7px">old_state: required</li>
+  				<li style="margin-bottom:7px">new_state: required</li>
+  				<li style="margin-bottom:7px">new_src: optional</li>
+  				<li style="margin-bottom:7px">new_x_pos: optional</li>
+  				<li style="margin-bottom:7px">new_y_pos: optional</li>
+  				<li style="margin-bottom:7px">new_x_scale: optional</li>
+  				<li style="margin-bottom:7px">new_y_scale: optional</li>
+  				<li style="margin-bottom:7px">new_background_color: optional</li>
+  				<li style="margin-bottom:7px">new_opacity: optional</li>
+  				<li>trigger_ids: optional (list of ids that will trigger the state change)</li>
+			</ul>
+			<div class="text">Any missing optional arguments will cause the corresponding value of the parent element to not change during a state change.</div>
+
+			<div class="title3">.id</div>
+			<div class="text">The id of the state transition.</div>
+
+			<div class="title3">.old_state</div>
+			<div class="text">The old state of the parent element, needs to be matched for the transition to occur.</div>
+
+			<div class="title3">.new_state</div>
+			<div class="text">The new state of the parent element if the state transition occurs.</div>
+
+			<div class="title3">.new_x_pos</div>
+			<div class="text">The new x coordinate of the parent element.</div>
+
+			<div class="title3">.new_y_pos</div>
+			<div class="text">The new y coordinate of the parent element.</div>
+
+			<div class="title3">.new_x_scale</div>
+			<div class="text">The new x scale of the parent element.</div>
+
+			<div class="title3">.new_y_scale</div>
+			<div class="text">The new y scale of the parent element.</div>
+
+			<div class="title3">.new_opacity</div>
+			<div class="text">The new opacity of the parent element.</div>
+
+			<div class="title3">.ids</div>
+			<div class="text">List of element ids that when clicked will trigger the state change (if the parent element's old_state matches too)</div>
+			
+			<div class="title3">.new_background_color</div>
+			<div class="text">The background color of the parent element's parent background.</div>
+
+		</div>
+	</body>
+
+</div>
+

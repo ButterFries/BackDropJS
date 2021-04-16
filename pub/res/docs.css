@@ -23,6 +23,28 @@ body {
 	font-size: 30px;
 }
 
+.title3 {
+	padding-top: 60px;
+	padding-bottom: 20px;
+	color: #006A8A;
+	font-family: Helvetica;
+	font-size: 30px;
+}
+
+.text {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #006A8A;
+	font-family: Helvetica;
+	font-size: 20px;
+}
+
+.textContainer {
+	background-color: #f2f2f2;
+	padding:30px;
+	padding-top: 0px;
+}
+
 .visible {
 	height: auto;
 	width: 100%;
@@ -59,21 +81,6 @@ body {
 	outline:0;
 }
 
-#eventDiv {
-	text-align: center;
-	width: 50px;
-	margin-top: 15px;
-	font-family: Helvetica;
-	font-weight: bold;
-	font-size: 20px;
-	color:black;
-	padding:10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-radius: 0px;
-	background-color: #f2f2f2;
-	border:none;
-}
 
 .menuButton {
 

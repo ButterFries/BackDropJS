@@ -1,7 +1,7 @@
 /* JS Libraries */
 "use strict";
 
-(function(global, document, $) { 
+(function(global, document) { 
 
 	function BackDropBackground(parent_container_id) {
 
@@ -27,6 +27,14 @@
 			this.parent_container.addEventListener("backDropClick", function(e) {
 				temp.click(e.detail.old_state, e.detail.id, e.detail.backgroundColor);
 			})
+		},
+
+		getElements: function() {
+			let ids = [];
+			for (let i = 0; i < this.elements.length; i++) {
+				ids.push(this.elements[i].id);
+			}
+			return ids;
 		},
 
 		addElement: function(new_element) {
@@ -208,9 +216,6 @@
 			var elem = document.getElementById(this.id);
 
 			elem.style["transition"] = "all 2s ease"
-			//elem.toggleClass(old_state, new_state);
-
-			//elem.className = this.id + "-" + old_state;
 			elem.style["transform"] = "";
 
 			if (new_state.new_src != undefined && new_state.new_src != null) {
@@ -305,4 +310,173 @@
 	global.BackDropStateTransition = global.BackDropStateTransition || BackDropStateTransition;
 
 
-})(window, window.document, $);
+})(window, window.document);
+/*
+--Getting started
+To get started with BackDrop, download the library and include the script in your HTML:
+
+<script defer type="text/javascript" src='backdrop.js'></script>
+
+You may then access the API through creating BackDropBackground, BackDropElement, and BackDropStateTransition objects.
+
+CODEEE
+// Create a new background.
+const background = new BackDropBackground('BackDropParent');
+background.setBackgroundColor("#c2fffd");
+
+// Create a new element.
+const elem = new BackDropElement({
+	id: 'elem',
+	curr_state: 'default',
+	src: 'res/logoLight.png',
+	x_pos: backDropBackground.getWidth()*0.3,
+	y_pos: 0,
+	width: '400px',
+	height: '250px'
+});
+
+// Create a new transition.
+const elemDefaultToClicked = new BackDropStateTransition({
+	transition_id: 'elemDefaultToClicked ', 
+	old_state: 'default', 
+	new_state: 'clicked',
+	new_src: 'res/logoDark.png'
+	trigger_ids: ['elem']
+});
+
+// Add the transition to the element
+elem.addStateTransition(elemDefaultToClicked);
+
+// Add the element to the background
+background.addElement(elem);
+
+
+----------
+BackDropBackground
+
+constructor('parent_container_id')
+Initializes the background and sets the div 'parentContainerId' as the parent for background elements.
+
+.getElements()
+Returns a list of all element ids attached to the background.
+
+.addElement(new_element)
+Adds a BackDropElement to the background, displays it, and attaches a stateChange listener to the new_element. Throws an error if the element id already exists in the background.
+
+.deleteElement(id)
+Deletes an element from the background with the corresponding id. Throws an error if an id is not found.
+
+.setBackgroundColor(color)
+Set the background's color
+
+.getHeight()
+Returns the background's height
+
+.getWidth()
+Returns the background's width
+
+CustomEvent 'backDropStateChange'
+The background will dispatch a 'backDropStateChange' custom event to the parent div if any added elements go through a state transition. EventListeners can wait for the event for background -> site interactions.
+The event has a detail object containing:
+ - old_state: the old state of the firing elem
+ - new_state: the new state of the firing elem
+ - elem_id: the id of the firing elem
+ - transition_id: the id of the transition
+ - clicked_elem_id: the id of the element clicked on
+
+------------
+BackDropElement
+
+constructor(args)
+Creates a new element. args is an object containing:
+ - id: required
+ - curr_state: required
+ - src: optional: default undefined
+ - x_pos: optional: default 0
+ - y_pos: optional: default 0
+ - width: optional: default 0
+ - height: optional: default 0
+ - x_scale: optional: default 1
+ - y_scale: optional: default 1
+ - opacity: optional: default 1
+
+.addStateTransition(state)
+Adds a new state transition to the element.
+
+.removeStateTransition(id)
+Removes a state transition with the corresponding id. Throws an error if the id is not found.
+
+.id
+The id of the element.
+
+.curr_state
+The current state of the element.
+
+.x_pos
+The x position of the element's top left corner.
+
+.y_pos
+The y position of the element's top left corner.
+
+.width
+The width of the element
+
+.height
+The height of the element
+
+.x_scale
+The x scale of the element
+
+.y_scale
+The y scale of the element
+
+.opacity
+The opacity of the element
+
+------------
+BackDropStateTransition
+
+constructor(args)
+Creates a new state transition args is an object containing:
+ - transition_id: required
+ - old_state: required
+ - new_state: required
+ - new_src: optional
+ - new_x_pos: optional
+ - new_y_pos: optional
+ - new_x_scale: optional
+ - new_y_scale: optional
+ - new_background_color: optional
+ - new_opacity: optional
+ - trigger_ids: optional (list of ids that will trigger the state change)
+Any missing optional arguments will cause the corresponding value of the parent element to not change during a state change.
+
+.id
+The id of the state transition.
+
+.old_state
+The old state of the parent element, needs to be matched for the transition to occur.
+
+.new_state
+The new state of the parent element if the state transition occurs.
+
+.new_x_pos
+The new x coordinate of the parent element.
+
+.new_y_pos
+The new y coordinate of the parent element.
+
+.new_x_scale
+The new x scale of the parent element.
+
+.new_y_scale
+The new y scale of the parent element.
+
+.new_background_color
+The background color of the parent element's parent background.
+
+.new_opacity
+The new opacity of the parent element.
+
+.ids
+List of element ids that when clicked will trigger the state change (if the parent element's old_state matches too)*/
