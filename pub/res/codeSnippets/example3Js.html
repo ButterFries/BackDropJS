@@ -1,0 +1,62 @@
+
+<!-- Code highlighted by https://pinetools.com/syntax-highlighter -->
+
+<pre class="hljs" style="color: rgb(77, 77, 76); font-size:15; margin: 15px;"><span class="hljs-comment" style="color: rgb(142, 144, 140);">// Modifying multiple elements through a state change</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> backDropBackground3 = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropBackground(<span class="hljs-string" style="color: rgb(113, 140, 0);">'BackDropParent3'</span>);
+backDropBackground3.setBackgroundColor(<span class="hljs-string" style="color: rgb(113, 140, 0);">"#ffadad"</span>);
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new BackDropElement</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> staticMoon = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropElement({
+	id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'staticMoon'</span>,
+	curr_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'small'</span>,
+	src: <span class="hljs-string" style="color: rgb(113, 140, 0);">'res/moon.png'</span>,
+	x_pos: backDropBackground2.getWidth()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.05</span>,
+	y_pos: backDropBackground2.getHeight()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.3</span>,
+	width: <span class="hljs-string" style="color: rgb(113, 140, 0);">"250px"</span>,
+	height: <span class="hljs-string" style="color: rgb(113, 140, 0);">"250px"</span>,
+	x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>,
+	y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>,
+	opacity: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new BackDropElement</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> animatedLogo = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropElement({
+	id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'animatedLogo'</span>,
+	curr_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'small'</span>,
+	src: <span class="hljs-string" style="color: rgb(113, 140, 0);">'res/logoDark.png'</span>,
+	x_pos: backDropBackground2.getWidth()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.45</span>,
+	y_pos: backDropBackground2.getHeight()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.2</span>,
+	width: <span class="hljs-string" style="color: rgb(113, 140, 0);">"400px"</span>,
+	height: <span class="hljs-string" style="color: rgb(113, 140, 0);">"250px"</span>,
+	x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>,
+	y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>,
+	opacity: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new transition which will be added to animatedLogo which uses the id staticMoon as a trigger</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> logoSmallToLarge = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropStateTransition({
+	transition_id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'logoSmallToLarge'</span>, 
+	old_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'small'</span>, 
+	new_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'large'</span>, 
+	new_x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1.6</span>, 
+	new_y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1.6</span>, 
+	trigger_ids: [<span class="hljs-string" style="color: rgb(113, 140, 0);">"staticMoon"</span>]
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create another new transition which will be added to animatedLogo which uses the id staticMoon as a trigger</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> logoLargeToSmall = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropStateTransition({
+	transition_id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'logoLargeToSmall'</span>, 
+	old_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'large'</span>, 
+	new_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'small'</span>, 
+	new_x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>, 
+	new_y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>, 
+	trigger_ids: [<span class="hljs-string" style="color: rgb(113, 140, 0);">"staticMoon"</span>]
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Apply transitions to element animatedLogo</span>
+animatedLogo.addStateTransition(logoSmallToLarge);
+animatedLogo.addStateTransition(logoLargeToSmall);
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Adds the elements to the background</span>
+backDropBackground3.addElement(staticMoon);
+backDropBackground3.addElement(animatedLogo);</pre>

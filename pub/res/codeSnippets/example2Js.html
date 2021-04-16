@@ -1,0 +1,74 @@
+
+<!-- Code highlighted by https://pinetools.com/syntax-highlighter -->
+
+<pre class="hljs" style="color: rgb(77, 77, 76); font-size:15; margin: 15px;"><span class="hljs-comment" style="color: rgb(142, 144, 140);">// Creating a state change</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> backDropBackground2 = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropBackground(<span class="hljs-string" style="color: rgb(113, 140, 0);">'BackDropParent2'</span>);
+backDropBackground2.setBackgroundColor(<span class="hljs-string" style="color: rgb(113, 140, 0);">"#ffe6a6"</span>);
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new BackDropElement</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> sun1 = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropElement({
+	id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'sun'</span>,
+	curr_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state1'</span>,
+	src: <span class="hljs-string" style="color: rgb(113, 140, 0);">'res/sun.png'</span>,
+	x_pos: backDropBackground2.getWidth()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.05</span>,
+	y_pos: backDropBackground2.getHeight()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.3</span>,
+	width: <span class="hljs-string" style="color: rgb(113, 140, 0);">"250px"</span>,
+	height: <span class="hljs-string" style="color: rgb(113, 140, 0);">"250px"</span>,
+	x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>,
+	y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>,
+	opacity: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new transition between state1 and state2, with the id "sun" being the only trigger</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> sunState1ToState2 = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropStateTransition({
+	transition_id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'sunState1ToState2'</span>, 
+	old_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state1'</span>, 
+	new_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state2'</span>, 
+	new_src: <span class="hljs-literal" style="color: rgb(245, 135, 31);">null</span>, 
+	new_x_pos: backDropBackground2.getWidth()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.4</span>,
+	new_y_pos: <span class="hljs-number" style="color: rgb(245, 135, 31);">0</span>,
+	new_x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1.5</span>, 
+	new_y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>, 
+	new_background_color: <span class="hljs-string" style="color: rgb(113, 140, 0);">"#f9bfff"</span>,
+	new_opacity: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>,
+	trigger_ids: [<span class="hljs-string" style="color: rgb(113, 140, 0);">"sun"</span>]
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new transition between state2 and state3</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> sunState2ToState3 = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropStateTransition({
+	transition_id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'sunState2ToState3'</span>, 
+	old_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state2'</span>, 
+	new_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state3'</span>, 
+	new_src: <span class="hljs-literal" style="color: rgb(245, 135, 31);">null</span>, 
+	new_x_pos: backDropBackground2.getWidth()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.7</span>,
+	new_y_pos: backDropBackground2.getHeight()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>,
+	new_x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>, 
+	new_y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">0.5</span>, 
+	new_background_color: <span class="hljs-string" style="color: rgb(113, 140, 0);">"#bafaff"</span>,
+	new_opacity: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>,
+	trigger_ids: [<span class="hljs-string" style="color: rgb(113, 140, 0);">"sun"</span>]
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Create a new transition between state3 and state1</span>
+<span class="hljs-keyword" style="color: rgb(137, 89, 168);">const</span> sunState3ToState1 = <span class="hljs-keyword" style="color: rgb(137, 89, 168);">new</span> BackDropStateTransition({
+	transition_id: <span class="hljs-string" style="color: rgb(113, 140, 0);">'sunState3ToState1'</span>, 
+	old_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state3'</span>, 
+	new_state: <span class="hljs-string" style="color: rgb(113, 140, 0);">'state1'</span>, 
+	new_src: <span class="hljs-literal" style="color: rgb(245, 135, 31);">null</span>, 
+	new_x_pos: backDropBackground2.getWidth()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.05</span>,
+	new_y_pos: backDropBackground2.getHeight()*<span class="hljs-number" style="color: rgb(245, 135, 31);">0.3</span>,
+	new_x_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>, 
+	new_y_scale: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>, 
+	new_background_color: <span class="hljs-string" style="color: rgb(113, 140, 0);">"#ffe6a6"</span>,
+	new_opacity: <span class="hljs-number" style="color: rgb(245, 135, 31);">1</span>,
+	trigger_ids: [<span class="hljs-string" style="color: rgb(113, 140, 0);">"sun"</span>]
+});
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Attach all 3 state transitions to the element</span>
+sun1.addStateTransition(sunState1ToState2);
+sun1.addStateTransition(sunState2ToState3);
+sun1.addStateTransition(sunState3ToState1);
+
+
+<span class="hljs-comment" style="color: rgb(142, 144, 140);">// Adds the element to the background</span>
+backDropBackground2.addElement(sun1);</pre>

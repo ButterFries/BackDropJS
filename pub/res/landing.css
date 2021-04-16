@@ -1,0 +1,79 @@
+
+#roundedBoxHeader {
+
+	left: 50%;
+	margin-left: -18.5%;
+	top:5%;
+	margin-top: 19%;
+
+	position: absolute;
+	border-radius: 15px;
+	padding: 50px;
+	width: 34%;
+	height: 18%;
+
+	font-family: Helvetica;
+	font-size: 20px;
+	text-align: center;
+
+	transition: 2s;
+}
+
+#roundedBoxHeader.light {
+	background-color: white;
+	color: black;
+	box-shadow: 0px 0px 10px gray;
+}
+
+#roundedBoxHeader.dark {
+	background-color: #363636;
+	color: #d4f5ff;
+	box-shadow: 0px 0px 10px white;
+}
+
+.menuButton {
+
+	-webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+	text-decoration: none;
+	padding-top: 15px;
+
+	border-radius: 7px;
+
+	min-width: 120px;
+	min-height: 40px;
+	margin: 10px;
+	margin-top: 100px;
+
+	font-family: Helvetica;
+	font-size: 20px;
+
+	transition: 0.3s;
+
+}
+
+.menuButton.light:hover {
+	transition: 0.5s;
+	background-color: #000066;
+}
+.menuButton.dark:hover {
+	transition: 0.5s;
+	background-color: #ccffff;
+}
+
+
+.menuButton.light {
+	transition: 2s;
+	background-color: #363636;
+	color: white;
+	
+}
+
+.menuButton.dark {
+	transition: 2s;
+	background-color: white;
+	color: black;
+	
+}

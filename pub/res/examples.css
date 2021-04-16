@@ -1,0 +1,107 @@
+
+body {
+
+	max-width: 1000px;
+	margin: auto;
+}
+
+
+.title1 {
+	padding-top: 30px;
+	color: blue;
+	font-family: Helvetica;
+	font-size: 40px;
+}
+
+
+.title2 {
+	padding-top: 60px;
+	padding-bottom: 20px;
+	color: blue;
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.visible {
+	height: auto;
+	width: 100%;
+}
+
+.hidden {
+	overflow: hidden;
+	height: 0;
+	width: 0;
+}
+
+.btn {
+	min-width: 140px;
+	margin-top: 15px;
+	font-family: Helvetica;
+	font-size: 20px;
+	padding:10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0px;
+	border:none;
+	background-color: white;
+}
+.btn.selected {
+	font-weight: bold;
+	background-color: #f2f2f2;
+}
+
+.code {
+	background-color: #f2f2f2;
+}
+
+.btn:focus {
+	outline:0;
+}
+
+#eventDiv {
+	text-align: center;
+	width: 50px;
+	margin-top: 15px;
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 20px;
+	color:black;
+	padding:10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 0px;
+	background-color: #f2f2f2;
+	border:none;
+}
+
+.menuButton {
+
+	-webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+	text-decoration: none;
+	text-align: center;
+	padding-top: 15px;
+	font-weight: bold;
+
+	border-radius: 7px;
+
+	min-width: 140px;
+	min-height: 35px;
+	margin: 10px;
+	margin-top: 30px;
+
+	font-family: Helvetica;
+	font-size: 20px;
+	background-color: #f2f2f2;
+
+	transition: 0.2s;
+
+}
+
+.menuButton:hover {
+	transition: 0.2s;
+	background-color: #ffffff;
+}
