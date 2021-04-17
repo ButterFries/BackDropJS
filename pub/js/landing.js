@@ -22,6 +22,7 @@ const sun = new BackDropElement({
 	height: "400px",
 	x_scale: 1,
 	y_scale: 1,
+	angle: 90,
 	opacity: null
 });
 
@@ -34,6 +35,7 @@ const sunNightToDayTransition = new BackDropStateTransition({
 	new_y_pos: backDropBackground.getHeight()*0.15, 
 	new_x_scale: 1, 
 	new_y_scale: 1, 
+	angle: 90,
 	new_background_color: "#b3ffff",
 	new_opacity: null,
 	trigger_ids: ["sun", "moon"]
@@ -48,6 +50,7 @@ const sunDayToNightTransition = new BackDropStateTransition({
 	new_y_pos: backDropBackground.getHeight(), 
 	new_x_scale: 0.7, 
 	new_y_scale: 0.7, 
+	angle: 0,
 	new_background_color: "#004d4d",
 	new_opacity: null,
 	trigger_ids: ["sun", "moon"]
@@ -70,6 +73,7 @@ const moon = new BackDropElement({
 	height: "400px",
 	x_scale: 0.75,
 	y_scale: 0.75,
+	angle: 90,
 	opacity: null
 });
 
@@ -82,6 +86,7 @@ const moonNightToDayTransition = new BackDropStateTransition({
 	new_y_pos: backDropBackground.getHeight(), 
 	new_x_scale: 0.7, 
 	new_y_scale: 0.7, 
+	angle: 90,
 	new_background_color: "#b3ffff",
 	new_opacity: null,
 	trigger_ids: ["sun", "moon"]
@@ -95,7 +100,8 @@ const moonDayToNightTransition = new BackDropStateTransition({
 	new_x_pos: backDropBackground.getWidth()*0.7, 
 	new_y_pos: backDropBackground.getHeight()*0.15, 
 	new_x_scale: 1, 
-	new_y_scale: 1, 
+	new_y_scale: 1,
+	angle: 0, 
 	new_background_color: "#004d4d",
 	new_opacity: null,
 	trigger_ids: ["sun", "moon"]

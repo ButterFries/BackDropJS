@@ -66,6 +66,7 @@ const sunState1ToState2 = new BackDropStateTransition({
 	new_y_pos: 0,
 	new_x_scale: 1.5, 
 	new_y_scale: 0.5, 
+	angle: 90,
 	new_background_color: "#f9bfff",
 	new_opacity: 0.5,
 	trigger_ids: ["sun"]
@@ -81,6 +82,7 @@ const sunState2ToState3 = new BackDropStateTransition({
 	new_y_pos: backDropBackground2.getHeight()*0.5,
 	new_x_scale: 0.5, 
 	new_y_scale: 0.5, 
+	angle: 180,
 	new_background_color: "#bafaff",
 	new_opacity: 1,
 	trigger_ids: ["sun"]
@@ -96,6 +98,7 @@ const sunState3ToState1 = new BackDropStateTransition({
 	new_y_pos: backDropBackground2.getHeight()*0.3,
 	new_x_scale: 1, 
 	new_y_scale: 1, 
+	angle: 0,
 	new_background_color: "#ffe6a6",
 	new_opacity: 1,
 	trigger_ids: ["sun"]
@@ -112,7 +115,7 @@ backDropBackground2.addElement(sun1);
 
 
 
-//EXAMPLE 3 - Modifying multiple elements through a state change
+//EXAMPLE 3 - Modifying different elements through a state change
 
 const backDropBackground3 = new BackDropBackground('BackDropParent3');
 backDropBackground3.setBackgroundColor("#ffadad");

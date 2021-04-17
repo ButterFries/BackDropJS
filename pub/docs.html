@@ -68,11 +68,11 @@
 			<div class="text">The background will dispatch a 'backDropStateChange' custom event to the parent div if any added elements go through a state transition. EventListeners can wait for the event for background -> site interactions.</div>
 			<div class="text">The event has a detail object containing:</div>
 			<ul class="text">
-  				<li style="margin-bottom:7px">old_state: the old state of the firing elem</li>
-  				<li style="margin-bottom:7px">new_state: the new state of the firing elem</li>
-  				<li style="margin-bottom:7px">elem_id: the id of the firing elem</li>
-  				<li style="margin-bottom:7px">transition_id: the id of the transition</li>
-  				<li>clicked_elem_id: the id of the element clicked on</li>
+  				<li style="margin-bottom:7px">old_state: the old state of the firing elem.</li>
+  				<li style="margin-bottom:7px">new_state: the new state of the firing elem.</li>
+  				<li style="margin-bottom:7px">elem_id: the id of the firing elem.</li>
+  				<li style="margin-bottom:7px">transition_id: the id of the transition.</li>
+  				<li>clicked_elem_id: the id of the element clicked on.</li>
 			</ul>
 		</div>
 
@@ -90,6 +90,7 @@
   				<li style="margin-bottom:7px">height: optional: default 0</li>
   				<li style="margin-bottom:7px">x_scale: optional: default 1</li>
   				<li style="margin-bottom:7px">y_scale: optional: default 1</li>
+  				<li style="margin-bottom:7px">angle: optional: default 0</li>
   				<li>opacity: optional: default 1</li>
 			</ul>
 
@@ -109,19 +110,22 @@
 			<div class="text">The y position of the element's top left corner.</div>
 
 			<div class="title3">.width</div>
-			<div class="text">The width of the element</div>
+			<div class="text">The width of the element.</div>
 
 			<div class="title3">.height</div>
-			<div class="text">The height of the element</div>
+			<div class="text">The height of the element.</div>
 
 			<div class="title3">.x_scale</div>
-			<div class="text">The x scale of the element</div>
+			<div class="text">The x scale of the element.</div>
 
 			<div class="title3">.y_scale</div>
-			<div class="text">The y scale of the element</div>
+			<div class="text">The y scale of the element.</div>
+
+			<div class="title3">.angle</div>
+			<div class="text">The angle, in degrees, of the element.</div>
 
 			<div class="title3">.opacity</div>
-			<div class="text">The opacity of the element</div>
+			<div class="text">The opacity of the element.</div>
 
 		</div>
 
@@ -138,8 +142,9 @@
   				<li style="margin-bottom:7px">new_y_pos: optional</li>
   				<li style="margin-bottom:7px">new_x_scale: optional</li>
   				<li style="margin-bottom:7px">new_y_scale: optional</li>
-  				<li style="margin-bottom:7px">new_background_color: optional</li>
   				<li style="margin-bottom:7px">new_opacity: optional</li>
+  				<li style="margin-bottom:7px">new_angle: optional</li>
+  				<li style="margin-bottom:7px">new_background_color: optional</li>
   				<li>trigger_ids: optional (list of ids that will trigger the state change)</li>
 			</ul>
 			<div class="text">Any missing optional arguments will cause the corresponding value of the parent element to not change during a state change.</div>
@@ -167,6 +172,9 @@
 
 			<div class="title3">.new_opacity</div>
 			<div class="text">The new opacity of the parent element.</div>
+
+			<div class="title3">.new_angle</div>
+			<div class="text">The new angle, in degrees, of the parent element.</div>
 
 			<div class="title3">.ids</div>
 			<div class="text">List of element ids that when clicked will trigger the state change (if the parent element's old_state matches too)</div>
